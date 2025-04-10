@@ -13,6 +13,7 @@ int countBlock(int n) {
     for (int i = 3; i <= n; i++) {
         // 맨 끝이 세로인 경우(dp[i-1])와 맨 끝이 가로인 경우(dp[i-2])를 더해주기
         dp[i] = dp[i - 1]+dp[i - 2];
+        dp[i] %= 10007;
     }
     return dp[n];
 }
@@ -23,7 +24,6 @@ int main()
     cin >> n;
     
     int ans = countBlock(n);
-    ans %= 10007;
     
     cout << ans;
     return 0;
